@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eco-Friendly Store</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(-45deg, #a8edea, #fed6e3, #f6d365, #fbc2eb);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite, fadeIn 1.5s ease-in;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .floating-leaf {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: url('https://cdn-icons-png.flaticon.com/512/2909/2909831.png') no-repeat center/contain;
+      animation: floatLeaf 20s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes floatLeaf {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        left: 5%;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        left: 95%;
+      }
+    }
+
+    .decor {
+      position: absolute;
+      z-index: 0;
+    }
+
+    .tree {
+      width: 120px;
+      bottom: 0;
+      left: 5%;
+      animation: sway 4s ease-in-out infinite alternate;
+    }
+
+    .bush {
+      width: 100px;
+      bottom: 0;
+      left: 25%;
+      animation: sway 6s ease-in-out infinite alternate;
+    }
+
+    .grass {
+      width: 100vw;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      animation: floatGrass 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes sway {
+      from { transform: rotate(-1deg); }
+      to { transform: rotate(1deg); }
+    }
+
+    @keyframes floatGrass {
+      from { transform: scaleY(1); }
+      to { transform: scaleY(1.05); }
+    }
+
+    header {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background: linear-gradient(90deg, #2e7d32, #66bb6a);
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: slideDown 1s ease-out;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* Adjusted for 4 columns */
+      gap: 2rem;
+      padding: 3rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .product-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+
+    .product-card img {
+      width: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .product-card h3 {
+      font-size: 1.3rem;
+      margin: 0.5rem 0;
+      color: #388e3c;
+    }
+
+    .product-card p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .buttons {
+      margin-top: 1rem;
+    }
+
+    .buttons button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      margin: 0 0.3rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    .buttons .cart-btn {
+      background-color: #66bb6a;
+      color: white;
+    }
+
+    .buttons .wishlist-btn {
+      background-color: #ffee58;
+      color: #333;
+    }
+
+    .buttons button:hover {
+      transform: scale(1.05);
+    }
+    
+    footer {
+      background-color: #388e3c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1rem;
+      margin-top: 2rem;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    footer a {
+      color: #fbc2eb;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-leaf"></div>
+  <img src="https://cdn-icons-png.flaticon.com/512/2913/2913974.png" class="decor tree" style="left: 5%;">
+  <img src="https://cdn-icons-png.flaticon.com/512/2913/2913978.png" class="decor bush" style="left: 25%;">
+  <img src="https://cdn-icons-png.flaticon.com/512/2913/2913991.png" class="decor grass">
+
+  <header>
+    <h1>Eco-Friendly Store</h1>
+    <p>Choose Green. Live Clean.</p>
+  </header>
+
+
+  <div class="products">
+    <!-- Product cards go here -->
+    <div class="product-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Bamboo Toothbrush">
+      <h3>Bamboo Toothbrush</h3>
+      <p>Biodegradable and eco-friendly oral care solution.</p>
+      <div class="buttons">
+        <button class="cart-btn">Add to Cart</button>
+        <a href="https://dl.flipkart.com/s/sLB6M1uuuN" class="wishlist-btn">Go to Link</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Bamboo Toothbrush">
+      <h3>Wooden combs and razors</h3>
+      <p>Eco-friendly grooming tools crafted from natural wood.</p>
+      <div class="buttons">
+        <button class="cart-btn">Add to Cart</button>
+        <a href="https://dl.flipkart.com/s/b2uskgNNNN" class="wishlist-btn">Go to Link</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Bamboo Toothbrush">
+      <h3>Seed paper notebooks</h3>
+      <p>Notebooks that grow into plants when planted.</p>
+      <div class="buttons">
+        <button class="cart-btn">Add to Cart</button>
+        <a href="https://dl.flipkart.com/s/sJu_LIuuuN " class="wishlist-btn">Go to Link</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Bamboo Toothbrush">
+      <h3>Eco-friendly sunglasses</h3>
+      <p>Shades made from recycled or biodegradable materials.</p>
+      <div class="buttons">
+        <button class="cart-btn">Add to Cart</button>
+        <a href="https://amzn.in/d/5EBzuAM" class="wishlist-btn">Go to Link</a>
+      </div>
+    </div>
+
+    <!-- Second row of products -->
+    <div class="product-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Bamboo Toothbrush">
+      <h3>Solar-powered power banks</h3>
+      <p>Portable chargers powered entirely by sunlight.</p>
+      <div class="buttons">
+        <button class="cart-btn">Add to Cart</button>
+        <a href="https://amzn.in/d/8cNZLMI" class="wishlist-btn">Go to Link</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Bamboo Toothbrush">
+      <h3>Eco phone cases</h3>
+      <p>Compostable cases made from plant-based or recycled materials.</p>
+      <div class="buttons">
+        <button class="cart-btn">Add to Cart</button>
+        <a href="https://brownliving.in/products/the-lucky-turtle-biodegradable-eco-friendly-mobile-cover-phone?variant=41242519634095" class="wishlist-btn">Go to Link</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Bamboo Toothbrush">
+      <h3>Vegan leather wallets</h3>
+      <p>Stylish wallets made from cruelty-free leather alternatives.</p>
+      <div class="buttons">
+        <button class="cart-btn">Add to Cart</button>
+        <a href="https://amzn.in/d/3HWAKoS" class="wishlist-btn">Go to Link</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Bamboo Toothbrush">
+      <h3>Sustainable deodorants</h3>
+      <p>Natural deodorants in eco-conscious, plastic-free packaging.</p>
+      <div class="buttons">
+        <button class="cart-btn">Add to Cart</button>
+        <a href="https://amzn.in/d/1l14dlC" class="wishlist-btn">Go to Link</a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2025 Eco-Friendly Store. All rights reserved.</p>
+    <p>Committed to promoting sustainable living and eco-conscious products.</p>
+    <p><a href="https://www.example.com">Learn more about our mission</a></p>
+  </footer>   
+</body>
+</html>
